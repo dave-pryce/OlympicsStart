@@ -20,4 +20,23 @@ app.get("/sports", (req, res) => {
   //res.json(["WeightLifting", "Cycling","Running","Athletics"]);
 });
 
+app.get("/sports/:name", (req, res) => {
+  let sportName = req.params.name;
+  console.log("Sport name:" , sportName);
+
+  let sport = {
+    "name" : "cycling",
+    "goldMedals" : [{
+      "division" : "Men's Sprint",
+      "country" : "UK",
+      "year" : 2012
+    },{
+      "division" : "Women's Sprint",
+      "country" : "Australia",
+      "year" : 2012
+    }]
+  };
+  res.json(sport);
+});
+
 app.listen(8181, () => console.log("Listening on 8181"));
