@@ -24,7 +24,7 @@ angular.module('olympics',["ui.router"])
     templateUrl: 'sports/sports-medals.html',
     resolve: {
       sportService: function($http, $stateParams){
-        return $http.get('/sports/${ $stateParams.sportName }')
+        return $http.get("/sports/${$stateParams.sportName}");
       }
     },
     controller: function(sportService){

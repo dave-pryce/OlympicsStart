@@ -29,7 +29,7 @@ _angular2.default.module('olympics', ["ui.router"]).config(function ($stateProvi
     templateUrl: 'sports/sports-medals.html',
     resolve: {
       sportService: function sportService($http, $stateParams) {
-        return $http.get('/sports/${ $stateParams.sportName }');
+        return $http.get("/sports/${$stateParams.sportName}");
       }
     },
     controller: function controller(sportService) {

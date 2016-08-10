@@ -1,0 +1,23 @@
+[
+{
+  "name" : "Cycling",
+  "goldMedals" : [
+    {"division" : "Men's Sprint","country" : "UK","year" : 2012},
+    {"division" : "Women's Sprint","country" : "Australia","year" : 2012}
+  ]
+},
+{
+  "name" : "Weightlifting",
+  "goldMedals" : [
+    {"division" : "Men's Heavy","country" : "South Korea","year" : 2012},
+    {"division" : "Women's Heavy","country" : "Australia","year" : 2012}
+  ]
+},
+{
+  "name" : "Running",
+  "goldMedals" : [
+    {"division" : "Men's 100 Metres","country" : "Jamaca","year" : 2012},
+    {"division" : "Women's 100 Metres","country" : "USA","year" : 2012}
+  ]
+}
+]
