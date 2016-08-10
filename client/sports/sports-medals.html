@@ -1,4 +1,4 @@
-<h3>{{sportCtrl.sport.name}} Gold Medals</h3>
+<h3><strong>{{sportCtrl.sport.name}}</strong> : Gold Medals</h3>
 
 <table class="table">
   <thead>
@@ -14,3 +14,6 @@
     </tr>
   </tbody>
 </table>
+
+
+<a class="btn" ui-sref="sports.new({sportName: sportCtrl.sport.name})">New Medal</a>

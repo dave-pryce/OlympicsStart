@@ -24,12 +24,24 @@ angular.module('olympics',["ui.router"])
     templateUrl: 'sports/sports-medals.html',
     resolve: {
       sportService: function($http, $stateParams){
-        return $http.get("/sports/${$stateParams.sportName}");
+        console.log($stateParams.sportName);
+        return $http.get('/sports/' + $stateParams.sportName);
       }
     },
     controller: function(sportService){
       this.sport = sportService.data;
     },
     controllerAs: 'sportCtrl'
+  })
+  .state('sports.new',{
+    url: '/:sportName/medal/new',
+    templateUrl: 'sports/new-medal.html',
+    controller: function($stateParams){
+      this.sportName = $stateParams.sportName;
+      this.saveMedal = function(medal){
+      console.log('Medal', medal);
+      };
+    },
+    controllerAs: 'newMedalCtrl'
   })
 })
