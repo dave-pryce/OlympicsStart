@@ -29,22 +29,34 @@ _angular2.default.module('olympics', ["ui.router"]).config(function ($stateProvi
     templateUrl: 'sports/sports-medals.html',
     resolve: {
       sportService: function sportService($http, $stateParams) {
-        console.log($stateParams.sportName);
+        //console.log($stateParams.sportName);
         return $http.get('/sports/' + $stateParams.sportName);
       }
     },
-    controller: function controller(sportService) {
+    controller: function controller(sportService, $location) {
       this.sport = sportService.data;
+      this.isActive = function (sport) {
+        // read sport name from url
+        var pathRegexp = /sports\/(\w+)/;
+        var match = pathRegexp.exec($location.patch());
+        if (match === null || match.length === 0) return false;
+        var selectedSportName = match[1];
+        return sport === selectedSportName;
+      };
     },
     controllerAs: 'sportCtrl'
   }).state('sports.new', {
-    url: '/:sportName/medal/new',
+    url: '/:sportName/medals/new',
     templateUrl: 'sports/new-medal.html',
-    controller: function controller($stateParams, $state) {
+    controller: function controller($stateParams, $state, $http) {
       this.sportName = $stateParams.sportName;
+
       this.saveMedal = function (medal) {
-        console.log('Medal', medal);
-        $state.go('sports.medals', { sportName: $stateParams.sportName });
+        $http({ method: 'POST',
+          url: '/sports/' + $stateParams.sportName + '/medals',
+          data: { medal: medal } }).then(function () {
+          $state.go('sports.medals', { sportName: $stateParams.sportName });
+        });
       };
     },
     controllerAs: 'newMedalCtrl'
