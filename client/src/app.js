@@ -31,10 +31,10 @@ angular.module('olympics',["ui.router"])
     },
     controller: function(sportService, $location){
       this.sport = sportService.data;
-      this.isActive = function(sport){
+      this.isActive = (sport) =>{
         // read sport name from url
         let pathRegexp = /sports\/(\w+)/;
-        let match = pathRegexp.exec($location.patch());
+        let match = pathRegexp.exec($location.path());
         if (match === null || match.length === 0) return false;
         let selectedSportName = match[1];
         return sport === selectedSportName;

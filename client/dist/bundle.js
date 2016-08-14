@@ -38,7 +38,7 @@ _angular2.default.module('olympics', ["ui.router"]).config(function ($stateProvi
       this.isActive = function (sport) {
         // read sport name from url
         var pathRegexp = /sports\/(\w+)/;
-        var match = pathRegexp.exec($location.patch());
+        var match = pathRegexp.exec($location.path());
         if (match === null || match.length === 0) return false;
         var selectedSportName = match[1];
         return sport === selectedSportName;

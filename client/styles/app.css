@@ -29,8 +29,6 @@ body {
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.5;
-  margin-left: 15px;
-  margin-right: 15px;
 }
 
 h1, h2, h3,
@@ -86,6 +84,8 @@ a {
 .card:focus,
 .card:hover {
   border-color: #808080;
+  background-color: #2d3142;
+  border-color: #2d3142;
 }
 
 /* ----- States ----- */
@@ -95,6 +95,7 @@ a {
 .card.is-active {
   background-color: #2d3142;
   border-color: #2d3142;
+  color : #ef8354;
 }
 
 .card.is-active .card-link {
