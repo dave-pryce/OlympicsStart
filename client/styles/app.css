@@ -29,6 +29,8 @@ body {
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.5;
+  max-width: 500px;
+  margin: auto;
 }
 
 h1, h2, h3,
