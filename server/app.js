@@ -6,6 +6,8 @@ let app = express();
 let mongoUtil = require('./mongoUtil');
 mongoUtil.connect();
 
+app.set('port',(process.env.PORT || 8181));
+
 app.use(express.static(__dirname + "/../client") );
 
 let bodyParser = require("body-parser");
@@ -61,4 +63,6 @@ app.post("/sports/:name/medals", jsonParser, (req,res) => {
 });
 
 
-app.listen(8181, () => console.log("Listening on 8181"));
+app.listen(app.get('port'), () => {
+console.log("Listening on", app.get('port'));
+});
