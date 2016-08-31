@@ -33,7 +33,7 @@ app.get("/sports/:name", (req, res) => {
     if(err) {
       res.sendStatus(400);
     }
-    console.log("Sport doc:" , doc);
+    //console.log("Sport doc:" , doc);
     res.json(doc);
   });
 });
